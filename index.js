@@ -1,4 +1,5 @@
 var util = require('util');
+var serand = require('serand');
 
 var errors = {
     serverError: {status: 500, code: 'server-error', message: 'Internal server error'},
@@ -8,7 +9,7 @@ var errors = {
     notFound: {status: 404, code: 'not-found', message: 'Not found'},
     badRequest: {status: 400, code: 'bad-request', message: 'Bad request'},
     unsupportedMedia: {status: 415, code: 'unsupported-media', message: 'Unsupported media type'},
-    unprocessableEntiy: {status: 422, code: 'unprocessable-entity', message: 'Unprocessable entity'}
+    unprocessableEntity: {status: 422, code: 'unprocessable-entity', message: 'Unprocessable entity'}
 };
 
 Object.keys(errors).forEach(function (key) {
@@ -18,12 +19,12 @@ Object.keys(errors).forEach(function (key) {
         if (!args[0]) {
             args[0] = error.message;
         }
-        return {
+        return new serand.Error({
             status: error.status,
             data: {
                 code: error.code,
                 message: util.format.apply(null, args)
             }
-        };
+        });
     };
 });
