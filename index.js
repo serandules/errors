@@ -4,6 +4,7 @@ var serand = require('serand');
 var errors = {
     serverError: {status: 500, code: 'server-error', message: 'Internal server error'},
     unauthorized: {status: 401, code: 'unauthorized', message: 'Unauthorized'},
+    forbidden: {status: 401, code: 'forbidden', message: 'Forbidden'},
     conflict: {status: 409, code: 'conflict', message: 'Conflict'},
     unsupportedAuth: {status: 401, code: 'unsupported-auth', message: 'Unsupported authorization scheme'},
     notFound: {status: 404, code: 'not-found', message: 'Not found'},
