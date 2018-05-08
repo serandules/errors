@@ -10,7 +10,8 @@ var errors = {
     notFound: {status: 404, code: 'not-found', message: 'Not found'},
     badRequest: {status: 400, code: 'bad-request', message: 'Bad request'},
     unsupportedMedia: {status: 415, code: 'unsupported-media', message: 'Unsupported media type'},
-    unprocessableEntity: {status: 422, code: 'unprocessable-entity', message: 'Unprocessable entity'}
+    unprocessableEntity: {status: 422, code: 'unprocessable-entity', message: 'Unprocessable entity'},
+    tooManyRequests: {status: 429, code: 'too-many-requests', message: 'Too many requests'}
 };
 
 Object.keys(errors).forEach(function (key) {
