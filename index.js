@@ -11,7 +11,8 @@ var errors = {
     badRequest: {status: 400, code: 'bad-request', message: 'Bad request'},
     unsupportedMedia: {status: 415, code: 'unsupported-media', message: 'Unsupported media type'},
     unprocessableEntity: {status: 422, code: 'unprocessable-entity', message: 'Unprocessable entity'},
-    tooManyRequests: {status: 429, code: 'too-many-requests', message: 'Too many requests'}
+    tooManyRequests: {status: 429, code: 'too-many-requests', message: 'Too many requests'},
+    serviceUnavailable: {status: 503, code: 'service-unavailable', message: 'Service unavailable'}
 };
 
 Object.keys(errors).forEach(function (key) {
