@@ -1,5 +1,4 @@
 var util = require('util');
-var serand = require('serand');
 
 var errors = {
     serverError: {status: 500, code: 'server-error', message: 'Internal server error'},
@@ -15,6 +14,13 @@ var errors = {
     serviceUnavailable: {status: 503, code: 'service-unavailable', message: 'Service unavailable'}
 };
 
+var Error = function (o) {
+    this.status = o.status;
+    this.data = o.data;
+};
+
+module.exports = Error;
+
 Object.keys(errors).forEach(function (key) {
     module.exports[key] = function () {
         var error = errors[key];
@@ -22,7 +28,7 @@ Object.keys(errors).forEach(function (key) {
         if (!args[0]) {
             args[0] = error.message;
         }
-        return new serand.Error({
+        return new Error({
             status: error.status,
             data: {
                 code: error.code,

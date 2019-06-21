@@ -7,8 +7,7 @@
     "email": "serandives@gmail.com"
   },
   "dependencies": {
-    "logger": "serandules/logger#master",
-    "serand": "serandules/serand#master"
+    "logger": "serandules/logger#master"
   },
   "repository": {
     "type": "git",
