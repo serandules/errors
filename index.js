@@ -1,5 +1,12 @@
 var util = require('util');
 
+var Error = function (o) {
+    this.status = o.status;
+    this.data = o.data;
+};
+
+module.exports.Error = Error;
+
 var errors = {
     serverError: {status: 500, code: 'server-error', message: 'Internal server error'},
     unauthorized: {status: 401, code: 'unauthorized', message: 'Unauthorized'},
@@ -13,13 +20,6 @@ var errors = {
     tooManyRequests: {status: 429, code: 'too-many-requests', message: 'Too many requests'},
     serviceUnavailable: {status: 503, code: 'service-unavailable', message: 'Service unavailable'}
 };
-
-var Error = function (o) {
-    this.status = o.status;
-    this.data = o.data;
-};
-
-module.exports = Error;
 
 Object.keys(errors).forEach(function (key) {
     module.exports[key] = function () {
