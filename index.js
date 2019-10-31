@@ -15,6 +15,7 @@ var errors = {
     unsupportedAuth: {status: 401, code: 'unsupported-auth', message: 'Unsupported authorization scheme'},
     notFound: {status: 404, code: 'not-found', message: 'Not found'},
     badRequest: {status: 400, code: 'bad-request', message: 'Bad request'},
+    payloadTooLarge: {status: 415, code: 'payload-too-large', message: 'Payload too large'},
     unsupportedMedia: {status: 415, code: 'unsupported-media', message: 'Unsupported media type'},
     unprocessableEntity: {status: 422, code: 'unprocessable-entity', message: 'Unprocessable entity'},
     tooManyRequests: {status: 429, code: 'too-many-requests', message: 'Too many requests'},
