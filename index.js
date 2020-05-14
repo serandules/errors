@@ -23,17 +23,14 @@ var errors = {
 };
 
 Object.keys(errors).forEach(function (key) {
-    module.exports[key] = function () {
+    module.exports[key] = function (message, data) {
         var error = errors[key];
-        var args = Array.prototype.slice.call(arguments);
-        if (!args[0]) {
-            args[0] = error.message;
-        }
         return new Error({
             status: error.status,
             data: {
                 code: error.code,
-                message: util.format.apply(null, args)
+                message: message || error.message,
+                data: data || {}
             }
         });
     };
