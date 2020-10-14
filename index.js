@@ -25,6 +25,7 @@ var errors = {
 Object.keys(errors).forEach(function (key) {
     module.exports[key] = function (message, data) {
         var error = errors[key];
+        console.trace('here')
         return new Error({
             status: error.status,
             data: {
