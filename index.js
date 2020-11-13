@@ -1,4 +1,5 @@
 var util = require('util');
+var mongoose = require('./mongoose');
 
 var Error = function (o) {
     this.status = o.status;
@@ -6,6 +7,8 @@ var Error = function (o) {
 };
 
 module.exports.Error = Error;
+
+module.exports.mongoose = mongoose;
 
 var errors = {
     serverError: {status: 500, code: 'server-error', message: 'Internal server error'},
@@ -25,7 +28,6 @@ var errors = {
 Object.keys(errors).forEach(function (key) {
     module.exports[key] = function (message, data) {
         var error = errors[key];
-        console.trace('here')
         return new Error({
             status: error.status,
             data: {
